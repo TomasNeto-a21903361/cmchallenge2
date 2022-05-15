@@ -17,8 +17,8 @@ abstract class Leitor(
         registado = false
     }
 
-    fun estaRegistado() {
-        registado
+    fun estaRegistado(): Boolean {
+        return registado
     }
 
 

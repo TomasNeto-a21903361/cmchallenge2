@@ -18,7 +18,7 @@ class LeitorImpar(
     }
 
     override fun onReceiveNumero(numero: Int) {
-        if (numero % 2 != 0){
+        if (numero % 2 != 0 && numero != 0){
             numeros.add(numero)
         }
     }

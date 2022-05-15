@@ -11,7 +11,7 @@ class GeradorNumerico(
 
     fun adicionarLeitor(leitor: OnNumeroListener ) {
         if (lista.size < maxLeitores) {
-            throw LimiteDeLeitoresAtingidoException(GeradorNumerico(maxLeitores, list))
+            throw LimiteDeLeitoresAtingidoException("GeradorNumerico atingiu o número máximo de leitores: $maxLeitores")
         }
         else {
             lista.add(leitor)

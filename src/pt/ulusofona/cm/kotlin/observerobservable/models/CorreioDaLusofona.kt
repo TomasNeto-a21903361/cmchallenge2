@@ -1,5 +1,6 @@
 package pt.ulusofona.cm.kotlin.observerobservable.models
 
+import pt.ulusofona.cm.kotlin.observerobservable.exceptions.LimiteDeLeitoresAtingidoException
 import pt.ulusofona.cm.kotlin.observerobservable.interfaces.OnNoticiaListener
 
 class CorreioDaLusofona(
@@ -9,8 +10,14 @@ class CorreioDaLusofona(
     private val lista: MutableList<OnNoticiaListener> = mutableListOf<OnNoticiaListener>()
 
     fun adicionarLeitor(leitor: OnNoticiaListener) {
-        lista.add(leitor)
-        leitor.leitorAdicionadoComSucesso()
+        if (lista.size < maxLeitores) {
+            throw LimiteDeLeitoresAtingidoException("CorreioDaLusofona atingiu o número máximo de leitores: $maxLeitores")
+        }
+        else {
+            lista.add(leitor)
+            leitor.leitorAdicionadoComSucesso()
+        }
+
     }
 
     fun removerLeitor(leitor: OnNoticiaListener) {

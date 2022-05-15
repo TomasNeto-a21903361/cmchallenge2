@@ -1,6 +1,5 @@
-package pt.ulusofona.cm.kotlin.observerobservable.classes
+package pt.ulusofona.cm.kotlin.observerobservable.models
 
-import pt.ulusofona.cm.kotlin.observerobservable.interfaces.OnNoticiaListener
 import pt.ulusofona.cm.kotlin.observerobservable.interfaces.OnNumeroListener
 
 class GeradorNumerico(

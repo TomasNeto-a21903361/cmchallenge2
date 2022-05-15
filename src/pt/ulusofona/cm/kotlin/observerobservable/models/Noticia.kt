@@ -1,4 +1,4 @@
-package pt.ulusofona.cm.kotlin.observerobservable.classes
+package pt.ulusofona.cm.kotlin.observerobservable.models
 
 data class Noticia(
     val titulo: String,

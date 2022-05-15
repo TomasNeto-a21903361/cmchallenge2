@@ -1,5 +1,6 @@
 package pt.ulusofona.cm.kotlin.observerobservable.models
 
+import pt.ulusofona.cm.kotlin.observerobservable.exceptions.LimiteDeLeitoresAtingidoException
 import pt.ulusofona.cm.kotlin.observerobservable.interfaces.OnNumeroListener
 
 class GeradorNumerico(
@@ -9,8 +10,14 @@ class GeradorNumerico(
     private val lista: MutableList<OnNumeroListener> = mutableListOf<OnNumeroListener>()
 
     fun adicionarLeitor(leitor: OnNumeroListener ) {
-        lista.add(leitor)
-        leitor.leitorAdicionadoComSucesso()
+        if (lista.size < maxLeitores) {
+            throw LimiteDeLeitoresAtingidoException(GeradorNumerico(maxLeitores, list))
+        }
+        else {
+            lista.add(leitor)
+            leitor.leitorAdicionadoComSucesso()
+        }
+
     }
 
     fun removerLeitor(leitor: OnNumeroListener ) {

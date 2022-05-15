@@ -4,7 +4,7 @@ import pt.ulusofona.cm.kotlin.observerobservable.interfaces.OnNumeroListener
 
 class GeradorNumerico(
     val maxLeitores: Int,
-    private val list: MutableList<Int> = mutableListOf<Int>()
+    private val list: List<Int> = listOf<Int>()
     ) {
     private val lista: MutableList<OnNumeroListener> = mutableListOf<OnNumeroListener>()
 

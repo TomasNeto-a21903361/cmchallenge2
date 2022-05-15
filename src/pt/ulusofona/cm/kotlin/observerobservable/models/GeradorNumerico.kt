@@ -20,6 +20,10 @@ class GeradorNumerico(
             leitor.leitorAdicionadoComSucesso()
         }
 
+        else {
+            throw LeitorInexistenteException("Este leitor não está registado!")
+        }
+
     }
 
     fun removerLeitor(leitor: OnNumeroListener ) {

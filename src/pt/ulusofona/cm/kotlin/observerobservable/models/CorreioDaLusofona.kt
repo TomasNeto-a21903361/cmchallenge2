@@ -6,7 +6,7 @@ import pt.ulusofona.cm.kotlin.observerobservable.interfaces.OnNoticiaListener
 
 class CorreioDaLusofona(
     val maxLeitores: Int,
-    private val list: List<Noticia> = listOf<Noticia>()
+    private val noticias: List<Noticia> = listOf<Noticia>()
 ) {
     private val leitores: MutableList<OnNoticiaListener> = mutableListOf<OnNoticiaListener>()
 
@@ -33,7 +33,7 @@ class CorreioDaLusofona(
     }
 
     private fun notificarLeitores(): List<Noticia> {
-        return list
+        return noticias
     }
 
     fun iniciar(){

@@ -10,30 +10,31 @@ class GeradorNumerico(
     ) {
     private val lista: MutableList<OnNumeroListener> = mutableListOf<OnNumeroListener>()
 
-    fun adicionarLeitor(leitores: OnNumeroListener ) {
+    fun adicionarLeitor(leitor: OnNumeroListener ) {
         if (lista.size < maxLeitores) {
             throw LimiteDeLeitoresAtingidoException("GeradorNumerico atingiu o número máximo de leitores: $maxLeitores")
         }
 
-        else if (!lista.contains(leitores)) {
-            lista.add(leitores)
-            leitores.leitorAdicionadoComSucesso()
+        else if (!lista.contains(leitor)) {
+            lista.add(leitor)
+            leitor.leitorAdicionadoComSucesso()
         }
 
     }
 
-    fun removerLeitor(leitores: OnNumeroListener ) {
-        if (lista.contains(leitores)) {
-            lista.remove(leitores)
-            leitores.leitorRemovidoComSucesso()
+    fun removerLeitor(leitor: OnNumeroListener ) {
+        if (lista.contains(leitor)) {
+            lista.remove(leitor)
+            leitor.leitorRemovidoComSucesso()
         }
         else {
             throw LeitorInexistenteException("Este leitor não está registado!")
         }
+
     }
 
-    private fun notificarLeitores(){
-
+    private fun notificarLeitores(): List<Int>{
+        return list
     }
 
     fun iniciar(){

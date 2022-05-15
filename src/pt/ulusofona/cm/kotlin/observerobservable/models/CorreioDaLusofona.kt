@@ -20,16 +20,15 @@ class CorreioDaLusofona(
             leitor.leitorAdicionadoComSucesso()
         }
 
-        else {
-            throw LeitorInexistenteException("Este leitor não está registado!")
-        }
-
     }
 
     fun removerLeitor(leitor: OnNoticiaListener) {
         if (lista.contains(leitor)) {
             lista.remove(leitor)
             leitor.leitorRemovidoComSucesso()
+        }
+        else if (lista.size < maxLeitores) {
+            throw LimiteDeLeitoresAtingidoException("CorreioDaLusofona atingiu o número máximo de leitores: $maxLeitores")
         }
         else {
             throw LeitorInexistenteException("Este leitor não está registado!")

@@ -5,7 +5,7 @@ import pt.ulusofona.cm.kotlin.observerobservable.interfaces.OnNumeroListener
 
 class Bufo(
            nome: String,
-           registado: Boolean = false
+           registado: Boolean
 ) : Leitor(nome = nome, registado = registado), OnNumeroListener, OnNoticiaListener {
 
     val numeros: MutableList<Int> = mutableListOf<Int>()

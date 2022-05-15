@@ -13,7 +13,8 @@ class CorreioDaLusofona(
         if (lista.size < maxLeitores) {
             throw LimiteDeLeitoresAtingidoException("CorreioDaLusofona atingiu o número máximo de leitores: $maxLeitores")
         }
-        else {
+
+        else if (!lista.contains(leitor)) {
             lista.add(leitor)
             leitor.leitorAdicionadoComSucesso()
         }

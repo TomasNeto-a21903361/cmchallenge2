@@ -8,23 +8,23 @@ class CorreioDaLusofona(
     val maxLeitores: Int,
     private val list: List<Noticia> = listOf<Noticia>()
 ) {
-    private val lista: MutableList<OnNoticiaListener> = mutableListOf<OnNoticiaListener>()
+    private val leitores: MutableList<OnNoticiaListener> = mutableListOf<OnNoticiaListener>()
 
     fun adicionarLeitor(leitor: OnNoticiaListener) {
-        if (lista.size <= maxLeitores) {
+        if (leitores.size <= maxLeitores) {
             throw LimiteDeLeitoresAtingidoException("CorreioDaLusofona atingiu o número máximo de leitores: $maxLeitores")
         }
 
-        else if (!lista.contains(leitor)) {
-            lista.add(leitor)
+        else if (!leitores.contains(leitor)) {
+            leitores.add(leitor)
             leitor.leitorAdicionadoComSucesso()
         }
 
     }
 
     fun removerLeitor(leitor: OnNoticiaListener) {
-        if (lista.contains(leitor)) {
-            lista.remove(leitor)
+        if (leitores.contains(leitor)) {
+            leitores.remove(leitor)
             leitor.leitorRemovidoComSucesso()
         }
         else {

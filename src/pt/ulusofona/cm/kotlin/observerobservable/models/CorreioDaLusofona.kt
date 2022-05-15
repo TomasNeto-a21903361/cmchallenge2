@@ -10,22 +10,22 @@ class CorreioDaLusofona(
 ) {
     private val lista: MutableList<OnNoticiaListener> = mutableListOf<OnNoticiaListener>()
 
-    fun adicionarLeitor(leitor: OnNoticiaListener) {
+    fun adicionarLeitor(leitores: OnNoticiaListener) {
         if (lista.size < maxLeitores) {
             throw LimiteDeLeitoresAtingidoException("CorreioDaLusofona atingiu o número máximo de leitores: $maxLeitores")
         }
 
-        else if (!lista.contains(leitor)) {
-            lista.add(leitor)
-            leitor.leitorAdicionadoComSucesso()
+        else if (!lista.contains(leitores)) {
+            lista.add(leitores)
+            leitores.leitorAdicionadoComSucesso()
         }
 
     }
 
-    fun removerLeitor(leitor: OnNoticiaListener) {
-        if (lista.contains(leitor)) {
-            lista.remove(leitor)
-            leitor.leitorRemovidoComSucesso()
+    fun removerLeitor(leitores: OnNoticiaListener) {
+        if (lista.contains(leitores)) {
+            lista.remove(leitores)
+            leitores.leitorRemovidoComSucesso()
         }
         else {
             throw LeitorInexistenteException("Este leitor não está registado!")

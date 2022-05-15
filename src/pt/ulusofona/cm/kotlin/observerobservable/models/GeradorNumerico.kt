@@ -1,5 +1,6 @@
 package pt.ulusofona.cm.kotlin.observerobservable.models
 
+import pt.ulusofona.cm.kotlin.observerobservable.exceptions.LeitorInexistenteException
 import pt.ulusofona.cm.kotlin.observerobservable.exceptions.LimiteDeLeitoresAtingidoException
 import pt.ulusofona.cm.kotlin.observerobservable.interfaces.OnNumeroListener
 
@@ -22,8 +23,13 @@ class GeradorNumerico(
     }
 
     fun removerLeitor(leitor: OnNumeroListener ) {
-        lista.remove(leitor)
-        leitor.leitorRemovidoComSucesso()
+        if (lista.contains(leitor)) {
+            lista.remove(leitor)
+            leitor.leitorRemovidoComSucesso()
+        }
+        else {
+            throw LeitorInexistenteException("Este leitor não está registado!")
+        }
     }
 
     private fun notificarLeitores(){

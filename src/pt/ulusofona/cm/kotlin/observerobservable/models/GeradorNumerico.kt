@@ -11,15 +11,14 @@ class GeradorNumerico(
     private val leitores: MutableList<OnNumeroListener> = mutableListOf<OnNumeroListener>()
 
     fun adicionarLeitor(leitor: OnNumeroListener ) {
+        //println(leitores.size)
         if (leitores.size < maxLeitores) {
-            throw LimiteDeLeitoresAtingidoException("GeradorNumerico atingiu o número máximo de leitores: $maxLeitores")
-        }
-
-        else if (!leitores.contains(leitor)) {
             leitores.add(leitor)
             leitor.leitorAdicionadoComSucesso()
         }
-
+        else  {
+            throw LimiteDeLeitoresAtingidoException("GeradorNumerico atingiu o número máximo de leitores: $maxLeitores")
+        }
 
     }
 

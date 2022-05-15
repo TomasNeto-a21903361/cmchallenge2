@@ -11,7 +11,7 @@ class CorreioDaLusofona(
     private val leitores: MutableList<OnNoticiaListener> = mutableListOf<OnNoticiaListener>()
 
     fun adicionarLeitor(leitor: OnNoticiaListener) {
-        if (leitores.size <= maxLeitores) {
+        if (leitores.size < maxLeitores) {
             throw LimiteDeLeitoresAtingidoException("CorreioDaLusofona atingiu o número máximo de leitores: $maxLeitores")
         }
 
